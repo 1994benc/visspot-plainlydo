@@ -1,34 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The most simple & sharable TODO list
 
-## Getting Started
+## How to run this locally
 
-First, run the development server:
+- Create a .env file in the root directory of this project with the following content. Replace YOUR_MONGO_DB_DATABASE_URL with your mongodb database url. This will be used by Prisma to connect to your mongodb database.
 
-```bash
-npm run dev
-# or
-yarn dev
+```
+    DATABASE_URL={YOUR_MONGO_DB_DATABASE_URL}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Create a .env.local file in the root directory of this project with the following content. Replace EMAIL_SERVER with your email server url, which should starts with smtp://, and EMAIL_FROM with the email you want to send from. These variables will be used by NextAuth for authentication.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+    EMAIL_SERVER={YOUR_SMTP_EMAIL_SERVER}
+    EMAIL_FROM={EMAIL_FROM}
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Run `yarn` to install dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Run `yarn start` to start the local server
