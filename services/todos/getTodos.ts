@@ -1,4 +1,8 @@
+import { PrismaClient, Todo } from "@prisma/client";
 
-export async function getTodos() {
-    return []
+const prisma = new PrismaClient();
+
+export async function getTodos(): Promise<Todo[]> {
+  const todos = await prisma.todo.findMany();
+  return todos;
 }

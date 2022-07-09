@@ -52,11 +52,18 @@ model User {
 }
 
 model VerificationToken {
-    id  String  @id @default(auto()) @map("_id") @db.ObjectId
+    id         String   @id @default(auto()) @map("_id") @db.ObjectId
     identifier String
     token      String   @unique
     expires    DateTime
 
     @@unique([identifier, token])
     @@map("verificationtokens")
+}
+
+model Todo {
+    id   String @id @default(auto()) @map("_id") @db.ObjectId
+    body String
+    done Boolean
+    tags String[] @map("tags")
 }
