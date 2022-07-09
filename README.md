@@ -1,4 +1,4 @@
-# The most simple & sharable TODO list
+# A simple & sharable TODO list
 
 ## How to run this locally
 
