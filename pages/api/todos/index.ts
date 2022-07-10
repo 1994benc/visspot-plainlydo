@@ -8,11 +8,13 @@ async function getTodos(): Promise<Todo[]> {
   return todos;
 }
 
-export default function getTodosFunc(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  getTodos()
-    .then((todos) => res.status(200).json(todos))
-    .catch((e) => res.status(500).json({ error: e.message }));
+export default async function getTodosFunc(req: NextApiRequest, res: NextApiResponse) {
+  try {
+    const todos = await getTodos();
+    console.log(todos);
+    return res.status(200).json(todos);
+  } catch (e: any) {
+    console.log(e);
+    return res.status(500).json({ error: e?.message || "Something went wrong" });
+  }
 }
